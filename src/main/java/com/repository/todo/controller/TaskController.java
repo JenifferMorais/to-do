@@ -44,9 +44,9 @@ public class TaskController {
 			@ApiResponse(code = 404, message = "The task does not exist"),
 			@ApiResponse(code = 500, message = "Invalid JWT Token || lack of permission") })
 	@ApiOperation(value = "Save user")
-	public void create(HttpServletRequest request, @RequestBody Task task) {
+	public Integer create(HttpServletRequest request, @RequestBody Task task) {
 		String token = jwtTokenProvider.resolveToken(request);
-		service.create(task, token);
+		return service.create(task, token);
 	}
 
 	@DeleteMapping("/{id}")

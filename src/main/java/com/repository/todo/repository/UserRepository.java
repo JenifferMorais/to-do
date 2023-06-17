@@ -1,8 +1,12 @@
 package com.repository.todo.repository;
 
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.repository.todo.dto.UserRowMapper;
@@ -29,9 +33,19 @@ public class UserRepository {
 		});
 	}
 
-	public void create(User user) {
+	public Integer create(User user) {
 		String sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
-		jdbcTemplate.update(sql, user.getName(), user.getEmail(), user.getPassword());
+
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		jdbcTemplate.update(connection -> {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, user.getName());
+			preparedStatement.setString(2, user.getEmail());
+			preparedStatement.setString(3, user.getPassword());
+			return preparedStatement;
+		}, keyHolder);
+
+		return keyHolder.getKey().intValue();
 	}
 
 	public void update(User user) {
@@ -46,16 +60,20 @@ public class UserRepository {
 
 	public User findByEmail(String email) {
 		try {
-			String sql = "SELECT * FROM users WHERE email = ?";
-			return jdbcTemplate.queryForObject(sql, new Object[] { email }, new UserRowMapper());
+			String sql = "SELECT * FROM users WHERE email LIKE ?";
+			return jdbcTemplate.queryForObject(sql, new Object[] { "%" + email + "%" }, new UserRowMapper());
 		} catch (Exception e) {
 			return null;
 		}
 	}
 
 	public User findById(int id) {
-		String sql = "SELECT * FROM users WHERE id = ?";
-		return jdbcTemplate.queryForObject(sql, new Object[] { id }, new UserRowMapper());
+		try {
+			String sql = "SELECT * FROM users WHERE id = ?";
+			return jdbcTemplate.queryForObject(sql, new Object[] { id }, new UserRowMapper());
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public Integer findIdUser(String email) {

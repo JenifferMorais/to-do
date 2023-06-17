@@ -43,8 +43,8 @@ public class UserController {
 			@ApiResponse(code = 404, message = "The user does not exist"),
 			@ApiResponse(code = 500, message = "Invalid JWT Token || E-mail already registered! || lack of permission") })
 	@ApiOperation(value = "Save user")
-	public void create(@RequestBody User user) {
-		service.create(user);
+	public Integer create(@RequestBody User user) {
+		return service.create(user);
 	}
 
 	@PutMapping

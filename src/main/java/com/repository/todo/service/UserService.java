@@ -49,11 +49,12 @@ public class UserService {
 		return repository.findAll().stream().map(UserDTO::new).collect(Collectors.toList());
 	}
 
-	public void create(User user) {
+	public Integer create(User user) {
 		if (validateEmail(user.getEmail()) && validatePassword(user.getPassword())) {
 			user.setPassword(encript(user.getPassword()));
-			repository.create(user);
+			return repository.create(user);
 		}
+		return null;
 	}
 
 	public Boolean validatePassword(String password) {

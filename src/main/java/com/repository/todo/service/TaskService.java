@@ -21,10 +21,10 @@ public class TaskService {
 		return repository.findAll();
 	}
 
-	public void create(Task task, String token) {
+	public Integer create(Task task, String token) {
 		String email = getEmailUser(token);
 		task.setIdUser(userService.findByIdUser(email));
-		repository.create(task);
+		return repository.create(task);
 	}
 
 	public String getEmailUser(String token) {
@@ -60,5 +60,14 @@ public class TaskService {
 
 	public List<Task> findPendingTaskByPriority(Integer priority) {
 		return repository.findPendingTaskByPriority(priority);
+	}
+
+	public Task findById(Integer id) {
+		try {
+			return repository.findById(id);
+		} catch (Exception e) {
+			return null;
+		}
+
 	}
 }
