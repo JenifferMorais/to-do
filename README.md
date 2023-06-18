@@ -16,11 +16,13 @@ Após, abra a conexão (no meu caso utilizei o dbeaver), com as seguintes inform
 
     Password: masterkey
 
-Com a conexão criada, rode os scripts que estão no arquivo script.sql na raiz do projeto.
+Com a conexão criada, rode os scripts que estão no arquivo script.sql na raiz do projeto para criar as tabelas.
 
-Abra o projeto na sua IDE de preferência, e execute o projeto com o seguinte comando:
+
+Abra o projeto na sua IDE de preferência, e execute o projeto com o seguinte comando para rodar o projeto:
 
     1- mvn spring-boot:run
+
 
 *** Crie um usuário e faça login, utilize o Token do login para conseguir realizar outras operações ***
 
