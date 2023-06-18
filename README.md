@@ -24,6 +24,7 @@ Abra o projeto na sua IDE de preferência, e execute o projeto com o seguinte co
     1- mvn spring-boot:run
 
 
+# Importante
 *** Crie um usuário e faça login, utilize o Token do login para conseguir realizar outras operações ***
 
 Como post, faça a requisição no caminho http://localhost:8080/user/create para criar seu usuário
