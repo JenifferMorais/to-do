@@ -32,7 +32,9 @@ Qualquer outra operação necessitará de permissão (do token gerado pelo login
 
 # Sobre os testes
 Para que o teste da service da task corra perfeitamente, crie um usuario antes com os seguintes dados:
-      email: jenimorais28@gmail.com
-      password: Kcm@269854
+
+    email: jenimorais28@gmail.com
+    
+    password: Kcm@269854
 
 Os testes foram desenvolvidos de forma a não deixar 'lixo' no banco (o teste começa com um insert e finaliza excluindo o que foi criado!)
