@@ -63,11 +63,6 @@ public class TaskService {
 	}
 
 	public Task findById(Integer id) {
-		try {
-			return repository.findById(id);
-		} catch (Exception e) {
-			return null;
-		}
-
+		return repository.findById(id);
 	}
 }

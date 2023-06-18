@@ -52,8 +52,13 @@ public class TaskRepository {
 	}
 
 	public Task findById(int id) {
-		String sql = "SELECT * FROM task WHERE id = ?";
-		return jdbcTemplate.queryForObject(sql, new Object[] { id }, new TaskRowMapper());
+		try {
+			String sql = "SELECT * FROM task WHERE id = ?";
+			return jdbcTemplate.queryForObject(sql, new Object[] { id }, new TaskRowMapper());
+
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public void delete(int id) {
