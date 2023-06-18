@@ -30,7 +30,7 @@ Como post, faça a requisição no caminho http://localhost:8080/auth para logar
 
 Qualquer outra operação necessitará de permissão (do token gerado pelo login).
 
-#Sobre os testes
+# Sobre os testes
 Para que o teste da service da task corra perfeitamente, crie um usuario antes com os seguintes dados:
       email: jenimorais28@gmail.com
       password: Kcm@269854
