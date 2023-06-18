@@ -10,11 +10,11 @@ Para executar esse projeto, o primeiro passo é criar nossa database (pode ser u
 
 Após, abra a conexão (no meu caso utilizei o dbeaver), com as seguintes informações:
 
-    Path: C:\test\DATABASEFDB.FDB
+    URL: jdbc:sqlserver://;serverName=localhost;databaseName=todo
 
-    Username: SYSDBA
+    Username: sysql
 
-    Password: masterkey
+    Password: masterkey@25
 
 Com a conexão criada, rode os scripts que estão no arquivo script.sql na raiz do projeto para criar as tabelas.
 
