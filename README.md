@@ -16,7 +16,7 @@ Após, abra a conexão (no meu caso utilizei o dbeaver), com as seguintes inform
 
     Password: masterkey
 
-Com a conexão criada, rode os scripts que estão no arquivo script do projeto.
+Com a conexão criada, rode os scripts que estão no arquivo script.sql na raiz do projeto.
 
 Abra o projeto na sua IDE de preferência, e execute o projeto com o seguinte comando:
 
