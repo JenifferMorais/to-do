@@ -1,3 +1,6 @@
+# Sobre 
+Para esse projeto foi utilizado Maven, Spring Boot, Spring Framework, Spring JDBC, JWT, Spring Security, Swagger, DTO Java, Lombok, SQLServer, API REST e JUnit.
+
 # Como executar o projeto to-do
 
 Para executar esse projeto, o primeiro passo é criar nossa database (pode ser utilizado o Microsoft SQL Server Management Studio 18 pra isso): 
